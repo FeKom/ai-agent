@@ -1,0 +1,114 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< github.fekom:election-management >------------------
+[INFO] Building election-management 1.0.3-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- quarkus:3.8.6.1:dev (default-cli) @ election-management ---
+[INFO] Invoking resources:3.3.1:resources (default-resources) @ election-management
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Invoking quarkus:3.8.6.1:generate-code (default) @ election-management
+[INFO] Invoking compiler:3.12.1:compile (default-compile) @ election-management
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] Invoking resources:3.3.1:testResources (default-testResources) @ election-management
+[INFO] skip non existing resourceDirectory /Users/vinic/IdeaProjects/lab-quarkus/election-management/src/test/resources
+[INFO] Invoking quarkus:3.8.6.1:generate-code-tests (default) @ election-management
+[INFO] Invoking compiler:3.12.1:testCompile (default-testCompile) @ election-management
+[INFO] Nothing to compile - all classes are up to date.
+Listening for transport dt_socket at address: 5005
+2025-05-30 11:07:53,276 INFO  [org.tes.doc.DockerClientProviderStrategy] (build-24) Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2025-05-30 11:07:53,294 INFO  [org.tes.doc.DockerMachineClientProviderStrategy] (build-24) docker-machine executable was not found on PATH ([/Users/vinic/.pyenv/shims, /Users/vinic/.local/bin, /Users/vinic/.nvm/versions/node/v22.13.1/bin, /opt/homebrew/bin, /opt/homebrew/sbin, /usr/local/bin, /System/Cryptexes/App/usr/bin, /usr/bin, /bin, /usr/sbin, /sbin, /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin, /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin, /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin, /usr/local/go/bin, /Users/vinic/code/go/bin, /usr/local/go/bin, /Users/vinic/.goenv/shims])
+2025-05-30 11:07:53,296 ERROR [org.tes.doc.DockerClientProviderStrategy] (build-24) Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+        UnixSocketClientProviderStrategy: failed with exception InvalidConfigurationException (Could not find unix domain socket). Root cause NoSuchFileException (/var/run/docker.sock)
+        DockerDesktopClientProviderStrategy: failed with exception NullPointerException (Cannot invoke "java.nio.file.Path.toString()" because the return value of "org.testcontainers.dockerclient.DockerDesktopClientProviderStrategy.getSocketPath()" is null)As no valid configuration was found, execution cannot continue.
+See https://java.testcontainers.org/on_failure.html for more details.
+
+2025-05-30 11:07:53,381 INFO  [org.tes.ima.PullPolicy] (build-24) Image pull policy will be performed by: DefaultPullPolicy()
+2025-05-30 11:07:53,381 INFO  [org.tes.uti.ImageNameSubstitutor] (build-24) Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2025-05-30 11:07:53,392 INFO  [io.qua.dep.dev.IsolatedDevModeMain] (main) Attempting to start live reload endpoint to recover from previous Quarkus startup failure
+2025-05-30 11:07:53,538 ERROR [io.qua.dep.dev.IsolatedDevModeMain] (main) Failed to start quarkus: java.lang.RuntimeException: io.quarkus.builder.BuildException: Build failure: Build failed due to errors
+        [error]: Build step io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor#launchDatabases threw an exception: java.lang.RuntimeException: java.lang.IllegalStateException: Previous attempts to find a Docker environment failed. Will not retry. Please see logs and check configuration
+        at io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor.startDevDb(DevServicesDatasourceProcessor.java:363)
+        at io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor.launchDatabases(DevServicesDatasourceProcessor.java:142)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at io.quarkus.deployment.ExtensionLoader$3.execute(ExtensionLoader.java:849)
+        at io.quarkus.builder.BuildContext.run(BuildContext.java:256)
+        at org.jboss.threads.ContextHandler$1.runWith(ContextHandler.java:18)
+        at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2513)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1538)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:501)
+Caused by: java.lang.IllegalStateException: Previous attempts to find a Docker environment failed. Will not retry. Please see logs and check configuration
+        at org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:232)
+        at org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)
+        at org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)
+        at org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:106)
+        at com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:109)
+        at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:329)
+        at io.quarkus.devservices.mariadb.deployment.MariaDBDevServicesProcessor$1.startDatabase(MariaDBDevServicesProcessor.java:72)
+        at io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor.startDevDb(DevServicesDatasourceProcessor.java:289)
+        ... 10 more
+
+        at io.quarkus.runner.bootstrap.AugmentActionImpl.runAugment(AugmentActionImpl.java:334)
+        at io.quarkus.runner.bootstrap.AugmentActionImpl.createInitialRuntimeApplication(AugmentActionImpl.java:251)
+        at io.quarkus.runner.bootstrap.AugmentActionImpl.createInitialRuntimeApplication(AugmentActionImpl.java:60)
+        at io.quarkus.deployment.dev.IsolatedDevModeMain.firstStart(IsolatedDevModeMain.java:112)
+        at io.quarkus.deployment.dev.IsolatedDevModeMain.accept(IsolatedDevModeMain.java:433)
+        at io.quarkus.deployment.dev.IsolatedDevModeMain.accept(IsolatedDevModeMain.java:55)
+        at io.quarkus.bootstrap.app.CuratedApplication.runInCl(CuratedApplication.java:138)
+        at io.quarkus.bootstrap.app.CuratedApplication.runInAugmentClassLoader(CuratedApplication.java:93)
+        at io.quarkus.deployment.dev.DevModeMain.start(DevModeMain.java:131)
+        at io.quarkus.deployment.dev.DevModeMain.main(DevModeMain.java:62)
+Caused by: io.quarkus.builder.BuildException: Build failure: Build failed due to errors
+        [error]: Build step io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor#launchDatabases threw an exception: java.lang.RuntimeException: java.lang.IllegalStateException: Previous attempts to find a Docker environment failed. Will not retry. Please see logs and check configuration
+        at io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor.startDevDb(DevServicesDatasourceProcessor.java:363)
+        at io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor.launchDatabases(DevServicesDatasourceProcessor.java:142)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at io.quarkus.deployment.ExtensionLoader$3.execute(ExtensionLoader.java:849)
+        at io.quarkus.builder.BuildContext.run(BuildContext.java:256)
+        at org.jboss.threads.ContextHandler$1.runWith(ContextHandler.java:18)
+        at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2513)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1538)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:501)
+Caused by: java.lang.IllegalStateException: Previous attempts to find a Docker environment failed. Will not retry. Please see logs and check configuration
+        at org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:232)
+        at org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)
+        at org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)
+        at org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:106)
+        at com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:109)
+        at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:329)
+        at io.quarkus.devservices.mariadb.deployment.MariaDBDevServicesProcessor$1.startDatabase(MariaDBDevServicesProcessor.java:72)
+        at io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor.startDevDb(DevServicesDatasourceProcessor.java:289)
+        ... 10 more
+
+        at io.quarkus.builder.Execution.run(Execution.java:123)
+        at io.quarkus.builder.BuildExecutionBuilder.execute(BuildExecutionBuilder.java:79)
+        at io.quarkus.deployment.QuarkusAugmentor.run(QuarkusAugmentor.java:160)
+        at io.quarkus.runner.bootstrap.AugmentActionImpl.runAugment(AugmentActionImpl.java:330)
+        ... 9 more
+Caused by: java.lang.RuntimeException: java.lang.IllegalStateException: Previous attempts to find a Docker environment failed. Will not retry. Please see logs and check configuration
+        at io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor.startDevDb(DevServicesDatasourceProcessor.java:363)
+        at io.quarkus.datasource.deployment.devservices.DevServicesDatasourceProcessor.launchDatabases(DevServicesDatasourceProcessor.java:142)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at io.quarkus.deployment.ExtensionLoader$3.execute(ExtensionLoader.java:849)
+        at io.quarkus.builder.BuildContext.run(BuildContext.java:256)
+        at org.jboss.threads.ContextHandler$1.runWith(ContextHandler.java:18)
+        at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2513)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1538)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:501)
+Caused by: java.lang.IllegalStateException: Previous attempts to find a Docker environment failed. Will not retry. Please see logs and check configuration
+        at org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:232)
+        at org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)
+        at org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)
+        at org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:106)
+        at com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:109)
+        at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:329)
+        at io.quarkus.devservices.mariadb.deployment.MariaDBDevServicesProcessor$1.startDatabase(MariaDBDevServicesProcessor.java:72)
+        at io.quarkus.datasource.deployment.devservices.DevServicesDaeProcessor.startDevDb(DevServicesDatasourceProcessor.java:289)
+        ... 10 more
