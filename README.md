@@ -13,12 +13,10 @@
 
 Antes de executar o projeto, certifique-se de ter instalado:
 
-***Docker***
-***Docker Compose***
-***Python 3.13 ou superior***
-***uv (pip install uv ou via Rust/Cargo)***
-***Como Rodar o Projeto***
-
++ ***Docker***
++ ***Docker Compose***
++ ***Python 3.13 ou superior***
++ ***uv (pip install uv ou via Rust/Cargo)***
 
 
 # Objetivo
@@ -69,9 +67,7 @@ src/logs/: Diretório onde os arquivos de log devem ser colocados.
 `python /src/logs_review.py`: Script principal que contém a lógica de leitura e análise dos logs.
 
 
-[!NOTE]
-⚠️ Caso esteja utilizando uma imagem de modelo de IA local (como modelos LLM offline), o desempenho será significativamente melhor em sistemas com GPU instalada (NVIDIA, com drivers apropriados). Em ambientes com GPU, o tempo de resposta pode ser de 10 a 100 vezes mais rápido.
-
-Em sistemas sem GPU, a IA será executada utilizando a CPU, o que pode resultar em tempos de execução muito mais lentos, especialmente ao processar grandes volumes de log ou modelos complexos.
-
-Recomendado para ambientes Linux com GPU ou Windows com suporte à aceleração por hardware.
+>[!NOTE]
+ >Caso esteja utilizando uma imagem de modelo de IA local (como modelos LLM offline), o desempenho será significativamente melhor em sistemas com GPU instalada (NVIDIA, com drivers >apropriados). Em ambientes com GPU, o tempo de resposta pode ser de 10 a 100 vezes mais rápido.
+ >Em sistemas sem GPU, a IA será executada utilizando a CPU, o que pode resultar em tempos de execução muito mais lentos, especialmente ao processar grandes volumes de log ou modelos >complexos.
+ >Recomendado para ambientes Linux com GPU ou Windows com suporte à aceleração por hardware.
