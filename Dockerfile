@@ -16,4 +16,4 @@ RUN uv pip install --no-cache-dir --system -e .
 
 RUN python -c "import httpx, langchain_community"
 
-CMD ["python3", "src/test/chat_test.py"]
+CMD ["docker exec -it ollama/ollama:latest bash ", "ollama run tinyllama"]

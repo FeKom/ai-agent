@@ -19,6 +19,8 @@ services:
         condition: service_started
     environment:
       - OLLAMA_HOST=http://ollama:11434
+    ports:
+      - 9200:9200
     networks:
       - ai-network
     volumes:

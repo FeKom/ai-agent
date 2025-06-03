@@ -29,91 +29,57 @@ Antes de executar o projeto, certifique-se de ter instalado:
 
 
 
-1. Iniciar os containers
-bash
+Objetivo
+
+O agente tem como finalidade ler os arquivos de log localizados no diretório:
+
+`src/logs/`
+
+A partir dos logs encontrados, o AI-Agent realiza uma análise detalhada e responde em linguagem natural o que está acontecendo na aplicação. Ele interpreta erros, identifica comportamentos suspeitos ou inesperados, e resume os eventos importantes, auxiliando no monitoramento e depuração do sistema.
+
+⚙️ Tecnologia
+
+Este projeto foi construído com o framework LangChain, que permite criar agentes inteligentes capazes de interagir com documentos, APIs e fluxos de dados de forma contextual e conversacional.
+
+🚀 Como Executar
+
+Para executar o projeto, é necessário ter o Docker e o Docker Compose instalados. Em seguida, rode o seguinte comando no terminal, a partir da raiz do projeto:
+
+`docker-compose up --build`
+
+Esse comando irá:
+
+Construir a imagem do container, caso ainda não tenha sido construída;
+
+Subir o container com o agente configurado;
+
+Iniciar a análise dos arquivos de log presentes em src/logs/ automaticamente (dependendo da configuração do container).
+
+ Estrutura do Projeto
+
+.
+├── docker-compose.yml
+├── Dockerfile
+├── src
+│   └── model
+│       └── chat.py
+│   └── logs
+│       └── election-management.log
+│   └── test
+│       └── chat_test.py
+│   └── logs_review.py
+└── README.md
+
+src/logs/: Diretório onde os arquivos de log devem ser colocados.
+
+`python /src/test/chat_test.py`: Script para testar a conexão com o ollama
+
+`python /src/logs_review.py`: Script principal que contém a lógica de leitura e análise dos logs.
 
 
+[!NOTE]
+⚠️ Caso esteja utilizando uma imagem de modelo de IA local (como modelos LLM offline), o desempenho será significativamente melhor em sistemas com GPU instalada (NVIDIA, com drivers apropriados). Em ambientes com GPU, o tempo de resposta pode ser de 10 a 100 vezes mais rápido.
 
-`docker-compose up -d`
+Em sistemas sem GPU, a IA será executada utilizando a CPU, o que pode resultar em tempos de execução muito mais lentos, especialmente ao processar grandes volumes de log ou modelos complexos.
 
-Isso inicia o serviço do Ollama na porta 11434.
-
-2. Baixar uma imagem do modelo
-
-Exemplo com TinyLlama:
-bash
-
-
-1
-`ollama run tinyllama`
-Se quiser usar outro modelo, execute `ollama run <nome-do-modelo>`.
-
-Para entrar dentro do container do Ollama:
-bash
-
-
-1
-`docker exec -it ollama bash`
-E então rodar:
-
-bash
-
-
-1
-ollama run <nome-do-modelo>
-
-3. Instalar dependências Python
-
-Se estiver usando ambiente virtual:
-
-bash
-
-
-1
-2
-uv venv
-source .venv/bin/activate
-Instale as dependências:
-
-bash
-
-
-1
-uv sync
-Ou, se preferir instalar diretamente:
-
-bash
-
-
-1
-uv pip install -r requirements.txt
-
-4. Executar o agente
-
-bash
-
-
-1
-`python src/logs_review.py`
-
-O script agent.py utiliza o LangChain para interagir com o modelo carregado no Ollama.
-
-Exemplo de Uso
-Adicionar um log no `src/logs/...` e rodar o agente para ler os logs e receber um review
-
-bash
-
-
-1
-docker-compose down
-Para remover todas as imagens e volumes não utilizados:
-
-bash
-
-
-1
-docker system prune -a
-Dependências Principais
-langchain
-uv
-requests (opcional, para chamadas HTTP diretas à API do Ollama)
+Recomendado para ambientes Linux com GPU ou Windows com suporte à aceleração por hardware.

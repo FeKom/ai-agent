@@ -28,9 +28,8 @@ def main():
 
         response = chain.invoke(
             {
-                'logs': '\n'.join([doc.page_content for doc in documents]),
+                'logs': '\n'.join([doc.page_content for doc in documents])[:4000],
                 'context':  "This is a log from an application, where I'm using quarkus, with the quarkus dev command to run and it's giving this error"
-,
             }
         )
 
