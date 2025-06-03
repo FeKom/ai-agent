@@ -7,18 +7,10 @@
 - uv como ferramenta de build
 - LangChain para orquestração
 - Modelo base: TinyLlama (configurável)
-- Estrutura do Projeto
 
-
-`   ia-agent/
-    ├── src/
-    │   └── logs_review.py           
-    ├── docker-compose.yml        
-    ├── pyproject.toml           
-    ├── README.md                 
-    └── .gitignore `
             
 ### Requisitos
+
 Antes de executar o projeto, certifique-se de ter instalado:
 
 ***Docker***
@@ -29,7 +21,7 @@ Antes de executar o projeto, certifique-se de ter instalado:
 
 
 
-Objetivo
+# Objetivo
 
 O agente tem como finalidade ler os arquivos de log localizados no diretório:
 
@@ -37,11 +29,11 @@ O agente tem como finalidade ler os arquivos de log localizados no diretório:
 
 A partir dos logs encontrados, o AI-Agent realiza uma análise detalhada e responde em linguagem natural o que está acontecendo na aplicação. Ele interpreta erros, identifica comportamentos suspeitos ou inesperados, e resume os eventos importantes, auxiliando no monitoramento e depuração do sistema.
 
-⚙️ Tecnologia
+## Tecnologia
 
 Este projeto foi construído com o framework LangChain, que permite criar agentes inteligentes capazes de interagir com documentos, APIs e fluxos de dados de forma contextual e conversacional.
 
-🚀 Como Executar
+## Como Executar
 
 Para executar o projeto, é necessário ter o Docker e o Docker Compose instalados. Em seguida, rode o seguinte comando no terminal, a partir da raiz do projeto:
 
